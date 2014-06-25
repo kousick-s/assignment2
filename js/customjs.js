@@ -30,26 +30,28 @@ $(document).on("blur","input", function (e) {
 	}
 });
 
-});
+
 $(document).on("click","#fromdate", function (e) {
 
 var today = new Date().toISOString().split('T')[0];
-alert(today);
+
 (this).setAttribute('min',today)
 
 //document.getElementsByName("somedate")[0].setAttribute('min', today);
 });
 $(document).on("click","#todate", function (e) {
 
-var tomorrow = new Date();
-var dd = tomorrow.getDate()+1;
-var mm = tomorrow.getMonth(); //January is 0!
-
-var yyyy = tomorrow.getFullYear();
-if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} tomorrow = mm+'/'+dd+'/'+yyyy;
-
+var today = new Date();
+var tomorrow = $("#fromdate").va(); //new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+var tomday = tomorrow.getDate();
+var tommonth = tomorrow.getMonth() + 1;
+var tomyear = tomorrow.getFullYear();
+if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = mm+'/'+dd+'/'+yyyy;
+if(tomday<10){tomday='0'+tomday} if(tommonth<10){tommonth='0'+tommonth} tomorrow = tomyear+"-"+tommonth+"-"+tomday;
 alert(tomorrow);
-
 (this).setAttribute('min',tomorrow)
 
 //document.getElementsByName("somedate")[0].setAttribute('min', today);
@@ -75,6 +77,10 @@ var ttname=(this).name;
 
 //document.getElementsByName("somedate")[0].setAttribute('min', today);
 });
+
+$(function() {
+    $( "#fromdate" ).datepicker();
+});
 function validateEmail(email) {
 
  var reg = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
@@ -89,3 +95,4 @@ function validateEmail(email) {
 } 
 
 
+});
