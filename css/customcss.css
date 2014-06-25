@@ -1,0 +1,19 @@
+.modal-head{
+        	color: black;
+        }
+        .modal-objects
+        {
+        	text-align: left;
+        	margin: 0;
+        }
+        .modal-form{
+        	background-color: #34495E
+        }
+        label.modal-lbl{
+        	padding-top: 15px;
+        	vertical-align: middle;
+        	color: #FFF;
+        }
+        .modal-tick{
+                font-size: 40px;
+        }
