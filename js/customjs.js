@@ -42,7 +42,7 @@ var today = new Date().toISOString().split('T')[0];
 $(document).on("click","#todate", function (e) {
 
 var today = new Date();
-var tomorrow = $("#fromdate").va(); //new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+var tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
 var dd = today.getDate();
 var mm = today.getMonth()+1; //January is 0!
 var yyyy = today.getFullYear();
@@ -51,7 +51,6 @@ var tommonth = tomorrow.getMonth() + 1;
 var tomyear = tomorrow.getFullYear();
 if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = mm+'/'+dd+'/'+yyyy;
 if(tomday<10){tomday='0'+tomday} if(tommonth<10){tommonth='0'+tommonth} tomorrow = tomyear+"-"+tommonth+"-"+tomday;
-alert(tomorrow);
 (this).setAttribute('min',tomorrow)
 
 //document.getElementsByName("somedate")[0].setAttribute('min', today);
